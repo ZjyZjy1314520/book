@@ -1,0 +1,328 @@
+﻿a:hover{text-decoration:none;}
+.dis-block{display:block!important;}
+.dis-none{display:none;}
+body.modal-open{margin-right:0px;overflow:inherit;}
+.overhidden{overflow:hidden;}
+.text-right{text-align:right;}
+.text-center{text-align:center;}
+.margin_left15{margin-left:15px}
+.margin_right5{margin-right:5px;}
+.left_zero{left:0px!important;}
+.padding_left20{padding-left:20px!important;}
+.padding_left5{padding-left:5px!important;}
+
+/*首页2*/
+.index{margin-top:54px;}
+.container-photo{padding-left:15px;padding-right:15px;margin-left:auto;margin-right:auto;max-width:1745px;}
+.container-photo:after{content:"";clear:both;display:table}
+.container-photo .header_margin{margin-left:15px;margin-right:15px;}
+.container-photo .category{background:#fafafa;color:black;}
+.container-photo .category:hover{cursor:pointer;color:#ee6fa0;}
+.container-photo .category_active{color:#ee6fa0;background-color:#fff;}
+.photo_setting{width:20%;position:relative;min-height:1px;padding:15px;float:left;}
+.col-xs-2-category a{color:#545454;}
+.col-xs-2-category a:hover{color:#ee6fa0;}
+.col-categoryList{width:12.5%;position:relative;min-height:1px;padding-left:15px;padding-right:15px;float:left;line-height:20px;}
+.col-categoryList span{color:#545454;}
+.col-categoryList span:hover{color:#ee6fa0;}
+.banner {background:url('../img/banner_index.jpg') center center no-repeat;height:400px;}
+.banner_text{padding-top:130px;padding-bottom:130px;text-align:center;}
+.banner_text .index_title{color:#fff;font-size:42px;text-align:center;margin-bottom:40px;}
+.banner_text a{display:inline-block;border:1px solid #ee6fa0;border-radius:2px;height:42px;line-height:40px;width:150px;margin:0 20px;}
+.banner_text .banner_btn1{background:#ee6fa0;color:white;}
+.banner_text .banner_btn2{color:#ee6fa0;}
+.banner_text a:hover{color:white;background:#fb86b3;border:1px solid #fb86b3;transition:all 0.6s ease;}
+.photo_active .photo_active_header{padding:15px;background:#fafafa;box-shadow:1px 1px 1px #e3e3e3;}
+.photo_active .border_left{border-left:2px solid #ee6fa0;color:#ee6fa0;}
+.photo_active .photo_active_content{margin-top:20px;}
+.photo_active_header .category_more{display:none;background:white;padding:5px;position:absolute;top:50px;right:0;color:black;width:450px;z-index:999;margin-right:20px;box-shadow:0 0 1px #e3e3e3}
+.category_more .border_left{border-left:1px solid #e7e7e7;}
+.category_more .border_left:nth-of-type(8n+1){border-left:none}
+.category_more .margin_height{margin-top:5px;margin-bottom:5px;}
+.category_more span{color:#545454;font-size:12px;text-shadow:0px 0px 2px #e3e3e3;}
+.photo_active_content .content_box{border:1px solid #ededed;padding:0px;}
+.content_box .box_message{background:#fff;padding:5px;}
+.content_box .box_advisor{background:#fafafa;padding:5px;}
+.box_message span{padding:0 10px;}
+.box_message .photo_scale{transition:all .3s ease-in-out;transform:scale(1);height:100%}
+.box_message .photo_scale:hover{transform:scale(1.1);}
+.box_message .cover{position:absolute;top:0px;width:100%;height:100%;padding:25% 0px;display:none;}
+.box_message:hover .cover{background:rgba(0,0,0,0.6);display:block;}
+.box_message .message_title{color:#545454;padding-top:5px;padding-bottom:5px;line-height:20px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
+.box_message:hover .message_title{color:#ee6fa0;}
+.box_message .message_time{color:#9d9d9d;}
+.box_message .text-right span{color:#9d9d9d;}
+.box_advisor span{padding:0 10px;}
+.box_advisor .advisor_float{float:left;}
+.box_advisor .advisor:hover{color:#ee6fa0;}
+.box_advisor .text-left span{color:#6e8bbb;}
+.box_advisor .text-right span{color:#9d9d9d;}
+.modal_login{width:390px;margin-left:-195px;height:200px;margin-top:-100px;position:absolute;top:50%;}
+.modal_login .modal_login_header{background:#ee6fa0;color:white;height:40px;border:none;}
+.modal_login .modal_login_body{padding-bottom:35px;}
+.modal_login_body .remind{margin:20px auto 40px auto;}
+.modal_login_body a{display:inline-block;width:125px;height:35px;line-height:35px;margin:0px 10px;cursor:pointer;}
+.modal_login_body .modal_login_btn1{background:#ee6fa0;color:white;border-radius:2px;}
+.modal_login_body .modal_login_btn2{background:#448aca;color:white;border-radius:2px;}
+.modal_login_body a:hover{color:white;background:#fb86b3;border:#fb86b3;transition:all 0.6s ease;}
+
+/*活动页面*/
+.container-photo .statistics{position:absolute;left:-170px;top:10px;color:#888888;}
+.container-photo .pagination>li>span{width:40px;height:40px;margin-left:5px;margin-right:5px;color:#9d9d9d;border-color:#e9e9e9;line-height:26px;border-radius:2px;}
+.container-photo .pagination>li>span:hover{color:white;background:#ee6fa0;cursor:pointer;}
+.container-photo .pagination>.active>span{color:white;background:#ee6fa0;}
+.container-photo .pagination>.active>span:hover{border-color:#e9e9e9;}
+
+/*活动列表*/
+.event_head {background:white;margin-top:55px;}
+.event_head .row{padding-top:30px;padding-bottom:40px;margin-left:0px;margin-right:0px;}
+.event_head .event_title{margin-bottom:20px;}
+.event_head .event_up{line-height:45px;margin-top:55px;}
+.event_title span{color:#545454;font-size:24px;}
+.event_time span{color:#9d9d9d;margin-right:15px;}
+.event_time p{margin:0 0 10px}
+.event_detail span{color:#9d9d9d;}
+.event_detail p{margin:0 0 10px}
+.event_up a{border:1px solid #ee6fa0;color:white;background:#ee6fa0;border-radius:2px;display:inline-block;height:50px;line-height:50px;width:175px;text-align:center;margin-right:30px;}
+.event_up a:hover{background:#fb86b3;color:white;border:1px solid #fb86b3;transition:all 0.6s ease;}
+.event_up span{color:#ee6fa0;}
+.event_up .browse_number{float:right;color:#9d9d9d;}
+.header_margin .products_border{border-left:2px solid #ee6fa0;padding-left:5px;}
+
+/*搜索*/
+.search_category{background:#444444;height:100px;margin-top:55px;text-align:center;}
+.search_category .search_box{padding-top:37px;}
+.search_category .search_category_choice{display:inline-block;width:65px;height:35px;line-height:35px;background:#5d5d5d;position:relative;}
+.search_category .search_category_choice div{cursor:pointer;}
+.search_category .search_category_list{display:none;background:#5d5d5d;color:#999999;position:absolute;top:35px;left:0px;z-index:999;}
+.search_category .search_category_content{display:inline-block;height:35px;line-height:35px;background:#6a6a6a;}
+.search_box div{margin:0px;padding:0px;}
+.search_category_choice span{padding:0 5px;color:#999999;}
+.search_category_content input{border: none;outline:none;padding:0;background:#6a6a6a;min-width:470px;vertical-align:bottom;}
+.search_category_content .search_btn{padding:8px;cursor:pointer;}
+.search_category_list .list_content{width:65px;height:35px;}
+.search_category_list .list_content:hover{background:#333333;}
+.shaixuan{background:white;height:50px;}
+.shaixuan span{padding:0 5px;}
+.shaixuan .shaixuan_content{clear:both;height:50px;max-width:500px;margin-left:auto;margin-right:auto;}
+.shaixuan .shaixuan_content div{cursor:pointer;}
+.shaixuan .shaixuan_content span{height:50px;line-height:50px;}
+.shaixuan .shaixuan_list{display:none;position:relative;z-index:999;background:white;}
+.shaixuan .shaixuan_list .list_content:hover{background:#f4f4f4;}
+
+/*活动作品上传*/
+.header_margin .upload_title{border-left:2px solid #ee6fa0;color:#ee6fa0;padding-left:5px;margin-top:80px;}
+.form-horizontal .upload_submit{margin-top:30px;margin-bottom:50px;}
+.upload_box{margin-top:20px;}
+.upload_box .upload_header{background:white;padding:15px 25px;}
+.upload_box .upload_content{background:white;margin-top:2px;padding:25px 25px;}
+.upload_content .upload_input{position:relative;overflow:hidden;margin-bottom:35px;}
+.upload_input .name{display:inline-block;margin-right:20px;vertical-align: top;line-height:40px;width:100px}
+.upload_input .point{padding-left:10px;padding-right:10px;}
+.upload_input .no_point{padding-left:27px;}
+.upload_input .select_box{display:inline-block;max-width:900px;width:100%;overflow:inherit;}
+.upload_input .select_box ul{display:none;position:absolute;top:40px;background:#f4f4f4;border:1px solid #dddddd;width:inherit;z-index:999;}
+.upload_input .select_box ul li{display:block;}
+.upload_input .select_box ul li:hover{background:#ee6fa0;color:white;}
+.upload_input .form-control{height:40px;max-width:900px;display:inline-block;border-color:#dddddd;background:#f4f4f4;}
+.upload_input .form-control:focus{outline:none;box-shadow:none;}
+.upload_input input::-webkit-input-placeholder { /* WebKit browsers */color:#b2b2b2;}
+.upload_input input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */color:#b2b2b2;}
+.upload_input input::-moz-placeholder { /* Mozilla Firefox 19+ */color:#b2b2b2;}
+.upload_input input:-ms-input-placeholder { /* Internet Explorer 10+ */color:#b2b2b2;}
+.upload_input .placeholder_right input::-webkit-input-placeholder { /* WebKit browsers */text-align:right}
+.upload_input .placeholder_right input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */text-align:right}
+.upload_input .placeholder_right input::-moz-placeholder { /* Mozilla Firefox 19+ */text-align:right}
+.upload_input .placeholder_right input:-ms-input-placeholder { /* Internet Explorer 10+ */text-align:right}
+.upload_input .dropdown_btn {position:absolute;top:15px;right:15px;}
+.upload_input .upload_file{width:240px;height:180px;background:#f2f2f2;display:inline-block;margin-left:30px;}
+.upload_input .p_position{position:absolute;left:15px;}
+.upload_input .upload_label{border:1px solid #b2b2b2;border-radius:2px;width:110px;height:35px;line-height:35px;display:inline-block;margin-right:15px;margin-bottom:10px;position:relative;cursor:pointer;}
+.upload_input .label_checked{border-color:#ee6fa0;color:#ee6fa0;}
+.upload_input .choice_pic{display:none;}
+.upload_file .help{padding:55px 0px;color:#b2b2b2;}
+.upload_label .choice{position:absolute;bottom:-1px;right:-1px;}
+.upload_submit .btn_submit{display:block;background:#ee6fa0;color:white;width:180px;height:50px;line-height:50px;border-radius:2px;cursor:pointer;}
+.upload_submit .btn_submit:hover{background:#fb86b3;transition:all 0.6s ease;}
+.modal_upload{position:absolute;width:380px;margin-left:-190px;top:50%;height:200px;margin-top:-100px;}
+.modal_upload .modal_upload_body{height:70px;line-height:70px;}
+.modal_upload .modal_upload_body span{padding:0 15px;}
+.modal-footer a{display:inline-block;border-radius:2px;width:130px;height:40px;line-height:40px;margin:0 12.5px;cursor:pointer;}
+.modal-footer a:hover{color:white;background:#fb86b3;border:1px solid #fb86b3;transition:all 0.6s ease;}
+.modal-footer .modal_upload_btn1{background:#ee6fa0;color:white;border:1px solid #ee6fa0;}
+.modal-footer .modal_upload_btn2{color:#545454;border:1px solid #b2b2b2;}
+
+/*创建活动*/
+.upload_input .form_time{width:100%;min-width:900px;display:inline-block;width:auto;}
+.upload_input .time_select{width:360px;}
+.upload_input .time_right{float:right;}
+.upload_input select{color:#b2b2b2;}
+.form_time .input-group-addon{width:auto;}
+
+/*登录*/
+.photo_login{margin-top:55px;background:#444444;}
+.login_box{width:352px;margin:200px auto auto auto;}
+.login_box .login_input{margin-bottom:35px;height:40px;}
+.login_box label{color:white;padding:0 25px;}
+.login_box .login_tool{height:40px;}
+.login_box .remember{display:inline-block;padding-left:10px;}
+.login_box .login_btn{display:inline-block;float:right;}
+.login_box .login_btn1{display:block;width:100px;height:35px;line-height:35px;background:#ee6fa0;color:white;border-radius:2px;}
+.login_box .login_btn1:hover{background:#fb86b3;transition:all 0.6s ease;}
+.login_box .forget_password{color:#999999;}
+.login_box .no_account{margin-top:55px;}
+.login_input input{width:270px;height:40px;border-radius:2px;border:none;outline:none;}
+.no_account .span1{color:white;}
+.no_account .span2{color:#ee6fa0;}
+
+/*上传头像*/
+.modal_touxiang{position:absolute;top:50%;width:500px;margin-left:-250px;height:514px;margin-top:-257px;padding:0;}
+.modal_touxiang .modal_touxiang_content{height:360px;padding:30px 20px 15px 30px;position:relative;}
+.modal_touxiang_content .touxiang_left{position:absolute;}
+.modal_touxiang_content .touxiang_right{position:absolute;right:20px;}
+.touxiang_left .touxiang_upload{display:inline-block;width:300px;height:300px;background:#eeeeee;}
+.touxiang_upload .help{color:#b2b2b2;padding:104px 0px}
+
+/*后台ui*/
+.left-nav .click_btn{margin-bottom:10px;}
+.left-nav .click_btn:hover{cursor:pointer;}
+.left-nav .click_btn:hover i{color:white;}
+.page-content_left55{left:55px!important;z-index:2;}
+.page-content_left221{left:221px!important;}
+.container_ui{position:relative;margin:0 auto;padding:20px;box-sizing:border-box;overflow:hidden;width:100%;}
+.container_ui .tool_box{margin: 0px 0px 15px 0px;padding: 10px 10px;border-left: 5px solid #ee6fa0;background: #f2f2f2;}
+.container_ui .input_ui{width:500px;height:38px;}
+.container_ui .input_ui input{height:38px;line-height:38px;}
+.container_Popup{position:relative;margin:0 auto;padding:20px;box-sizing:border-box;overflow:hidden;width:100%;}
+.margin_top_30{margin-top:30px}
+.layui-table-view .layui-table-body .layui-table{margin-bottom:100px;}
+.ui_btn{background-color:#ee6fa1;}
+.ui_btn_position{position:absolute;bottom:20px;right:20px;}
+.layui-laypage .layui-laypage-curr .layui-laypage-em{background-color:#ee6fa0}
+.layui-layer-btn .layui-layer-btn0{border-color:#ee6fa0!important;background-color:#ee6fa0!important;}
+/*.page-content .layui-tab .layui-tab-content{overflow-y:hidden!important}*/
+
+/*layui登录框*/
+.login{width:500px;height:360px;}
+.login-top{padding:14px 60px}
+.login-top input[type="text"]{padding:13px 20px;width:305px}
+.login-top input[type="password"]{padding:13px 20px;width:305px}
+.login-bottom{padding:28px,65px}
+
+/*错误页*/
+.banner_error {background: url('../img/404.jpg') center center no-repeat;width:100%;height:500px;background-size:cover;margin-bottom:30px;}
+.error a{line-height: 35px;background: #fff;color: #ee6fa0;border: 1px solid #ee6fa0;display: inline-block;margin: 30px 0;width: 100%;border-radius: 6px;transition: all .3s ease-in-out;}
+.error a:hover{background: #fb86b3;color: #fff;border: 1px solid #ee6fa0;}
+
+@media screen and (max-width:768px){
+    /*首页2*/
+    .banner_text{padding-top:135px;}
+    .banner_text .index_title{font-size:25px;}
+    .banner_text a{margin:0 5px;width:45%;}
+    .container-photo .header_margin{margin-left:0px;margin-right:0px;}
+    .photo_setting{width:100%;}
+    .col-xs-2-category{width:20%;position:relative;min-height:1px;float:left;padding:0px;text-align:left;}
+    .col-categoryList{width:25%;}
+    .category_padding{padding-top:10px;}
+    .photo_active_header .category_more{top:70px;right:0px;}
+    .category_more .border_left:nth-of-type(4n+1){border-left:none}
+    .modal_login{min-width:280px;width:100%;margin-left:0px;}
+    .modal_login_body a{width:107px;}
+
+    /*活动页面*/
+    .container-photo .statistics{position:inherit;}
+
+    /*活动列表*/
+    .event_head .event_up{margin-top:0px;}
+    .event_up a{display:block;}
+
+    /*搜索*/
+    .search_category_content input{min-width:140px;}
+
+    /*活动作品上传*/
+    .header_margin .upload_title{margin-top:25px;}
+    .form-horizontal .upload_submit{text-align:center;margin:30px 0px;}
+    .upload_content .upload_input{padding-right:15px;text-align:center;}
+    .upload_input .upload_file{margin-left:0px;}
+    .upload_input .select_box{max-width:350px;}
+    .upload_input .form-control{max-width:350px;margin-left:0px;}
+    .upload_submit .btn_submit{margin-left:auto;margin-right:auto;}
+    .modal_upload{min-width:320px;margin-left:0px;width:100%;}
+    .modal-footer a{width:39%;}
+
+    /*创建活动*/
+    .upload_input .form_time{width:100%;max-width:350px;min-width:0px;}
+    .upload_input .time_select{max-width:310px;width:100%}
+    .upload_input .time_right{float:inherit;margin-top:10px;}
+    .form_time .input-group-addon{width:1%;}
+
+    /*登录*/
+    .login_box{width:auto;margin-top:100px;}
+    .login_box label{padding:0 15px;}
+    .login_box .remember{padding-left:0px;float:left;}
+    .login_input input{width:100%;}
+
+    /*上传头像*/
+    .modal_touxiang{min-width:280px;width:100%;margin-left:0px;padding:10px;}
+    .modal_touxiang .modal_touxiang_content{height:220px;;padding:10px;}
+    .modal_touxiang_content .touxiang_left{position:inherit;}
+    .modal_touxiang_content .touxiang_right{display:none;}
+    .touxiang_left .touxiang_upload{width:200px;height:200px;}
+    .touxiang_upload .help{padding:54px 0px;}
+
+    /*后台ui*/
+    .container_ui .input_ui{width:140px;}
+}
+@media screen and (max-width:992px) and (min-width:768px) {
+    /*首页2*/
+    .container-photo{max-width:800px;}
+    .photo_setting{width:33.33%;}
+    .col-xs-2-category{width:20%;position:relative;min-height:1px;float:left;padding:0px;text-align:left;}
+    .photo_active_header .category_more{right:30px;}
+    .modal_login{width:390px;margin-left:-195px;}
+
+     /*活动列表*/
+    .event_head .event_up{margin-top:0px;}
+
+
+    /*活动作品上传*/
+    .upload_input .select_box{max-width:600px;}
+    .upload_input .form-control{max-width:600px;}
+    .modal_upload{width:380px;margin-left:-190px;}
+
+    /*创建活动*/
+    .upload_input .form_time{width:100%;max-width:600px;min-width:0px;}
+    .upload_input .time_select{max-width:600px;width:100%}
+    .form_time .input-group-addon{width:1%;}
+
+    /*上传头像*/
+    .modal_touxiang{width:500px;margin-left:-250px;}
+    .modal_touxiang .modal_touxiang_content{height:360px;padding:30px 20px 15px 30px;}
+    .modal_touxiang_content .touxiang_left{position:absolute;}
+    .modal_touxiang_content .touxiang_right{display:inline-block;}
+    .touxiang_left .touxiang_upload{display:inline-block;width:300px;height:300px;}
+    .touxiang_upload .help{padding:104px 0px}
+
+    /*后台ui*/
+    .container_ui .input_ui{width:300px;}
+}
+@media screen and (max-width:1200px) and (min-width:992px){
+    /*首页2*/
+    .container-photo{max-width:1000px;}
+    .box_message .message_time{font-size:13px;}
+    .photo_active_header .category_more{right:40px;}
+    .photo_setting{width:25%;}
+
+    /*活动列表*/
+    .event_head .event_up{margin-top:40px;}
+    /*活动作品上传*/
+    .upload_input .select_box{max-width:650px;}
+    .upload_input .form-control{max-width:650px;}
+
+    /*创建活动*/
+    .upload_input .form_time{min-width:650px;}
+    .upload_input .time_select{width:260px;}
+
+    /*后台ui*/
+    .container_ui .input_ui{width:400px;}
+}

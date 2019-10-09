@@ -1,0 +1,181 @@
+#containner {
+    margin: 0 auto;
+    padding-left:30px;
+    padding-right:30px;
+    /*padding: 20px;
+    background: #eee;*/
+    overflow: hidden;
+    position: relative;
+}
+
+#uploadready {
+    /*border: 2px dashed #ccc;
+    border-radius: 3px;*/
+    float: right;
+    width: 100%;
+    /*background: url(/jscss/demoimg/201207/tipsword.png) center center no-repeat #f8f8f8;*/
+    text-align: left;
+}
+
+    /*#uploadready h2 {
+        text-align: center;
+        background: #f8f8f8;
+        border-bottom: 1px solid #ddd;
+        padding: 10px 0;
+        color: #555;
+        font-size: 16px;
+    }*/
+
+    #uploadready #dropbox {
+        margin-top:5px;
+        background:#f8f8f8;
+        height: 200px;
+        /*overflow-y: auto;*/
+    }
+
+    #uploadready li {
+        /*border: 1px solid #DDDDDD;*/
+        float: left;
+        font-size: 12px;
+        height: 290px;
+        line-height: 1.6;
+        list-style: none outside none;
+        /*padding: 10px;*/
+        position: relative;
+        /*margin: 10px 0 0 10px;*/
+        overflow: hidden;
+        /*box-shadow: 2px 2px 2px #ddd;
+        -moz-box-shadow: 2px 2px 2px #ddd;
+        -webkit-box-shadow: 2px 2px 2px #ddd;*/
+    }
+
+        #uploadready li p {
+            background: #F9F4E6;
+            color: #090;
+            padding: 1px 4px;
+            cursor: text;
+            word-break: break-all;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            border-left: #ccc;
+            border-top: #ccc;
+            border-right: #ddd;
+            border-bottom: #ddd;
+            border-width: 1px;
+            border-style: solid;
+        }
+
+            #uploadready li p:focus {
+                background: #FC9;
+            }
+
+.img_and_info img:hover {
+    cursor: pointer;
+    opacity: .8;
+}
+
+#uploadready li span {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    text-indent: -9999px;
+    background: url(images/delete_x.png);
+    margin-left: -32px;
+    margin-top: -32px;
+    cursor: pointer;
+    width: 64px;
+    height: 64px;
+}
+
+#uploadready li:hover span {
+    display: block;
+}
+
+.title {
+    width: 628px;
+    height: 38px;
+    font-family: 'Î¢ÈíÑÅºÚ';
+    font-size: 18px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+}
+
+.source {
+    border: 1px solid #666;
+    background: #FFC;
+    cursor: pointer;
+    padding: 5px 12px;
+    font-size: 12px;
+    float: left;
+    margin-top: 5px;
+}
+
+#uploadView {
+    min-height: 100px;
+    background: #fff;
+    border: 10px solid #ddd;
+}
+
+#dropbox img {
+    display: block;
+    /*margin: 20px auto 5px;*/
+}
+
+#dropbox ul {
+    padding: 0;
+    margin: 0;
+}
+
+progress {
+    background-color: #EEEEEE;
+    border: none;
+    border-top: 1px solid #ccc;
+    bottom: 0;
+    height: 2px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+
+    progress::-webkit-progress-bar {
+        background-color: #d7d7d7;
+    }
+
+    progress::-webkit-progress-value {
+        background-color: #f00;
+    }
+
+/*.box-shadow {
+    box-shadow: 0px 0px 8px #999 inset;
+    -webkit-box-shadow: 5px 5px 5px #999 inset;
+    background: #f8f8f8;
+}*/
+
+#upload_btn {
+    width: 100%;
+    height: 38px;
+    font-size: 18px;
+}
+
+#dropbox img {
+    /*background: url('/jscss/demoimg/loading.gif') enter center no-repeat;*/
+    margin-right:20px;
+    width:100%;
+    max-width: 240px;
+    max-height: 180px;
+}
+
+#dropbox ul {
+    mix-height: 0px;
+}
+
+.btns {
+    clear: both;
+    padding: 8px 0;
+}
+
+    .btns input {
+        padding: 5px 20px;
+        margin-right: 10px;
+    }

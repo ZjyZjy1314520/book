@@ -1,0 +1,244 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>库存管理系统</title>
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="~/Content/layui/css/font.css">
+    <link rel="stylesheet" href="~/Content/layui/css/xadmin.css">
+    <link rel="stylesheet" href="~/Content/layui/css/font_432680_6iku66nb1sv2t9.css">
+    <link href="~/Content/layui/css/layout.css" rel="stylesheet" />
+    @*<link rel="shortcut icon" href="~/Content/img/shortcut-logo.png" />*@
+    <style>
+        /*右键菜单*/
+        #titleClickMenu ul {
+            display: block;
+            list-style-type: disc;
+            padding: 10px;
+            max-height: 286px;
+            overflow: auto;
+        }
+
+        #titleClickMenu cite {
+            line-height: 26px;
+            font: 14px Helvetica Neue, Helvetica, PingFang SC, \5FAE\8F6F\96C5\9ED1, Tahoma, Arial, sans-serif;
+            /*display: list-item;*/
+            text-align: -webkit-match-parent;
+        }
+
+        #titleClickMenu i {
+            color: #6f6f6f;
+            line-height: 26px;
+        }
+
+        #titleClickMenu cite:hover {
+            color: #6f6f6f;
+        }
+        /*右键菜单*/
+        #xbs_tab > li:first-child .layui-tab-close {
+            display: none;
+        }
+
+        .container {
+            border: 0px solid #f4f4f4;
+        }
+
+            .container .logo a {
+                color: #ffffff;
+                padding-left: 20px;
+            }
+            .container .left_open {
+                height: 45px;
+                float: left;
+                margin-left: 10px;
+            }
+
+                .container .left_open i {
+                    display: block;
+                    background: rgba(255,255,255,0.1);
+                    width: 32px;
+                    height: 32px;
+                    line-height: 32px;
+                    border-radius: 3px;
+                    text-align: center;
+                    margin-top: 7px;
+                    cursor: pointer;
+                }
+
+                    .container .left_open i:hover {
+                        background: rgba(255,255,255,0.3);
+                    }
+            .container .iconfont {
+                font-size: 14px;
+            }
+        .layui-nav .layui-nav-item a {
+            color: #ff0000;
+        }
+
+            .layui-nav .layui-nav-item a:hover {
+                color: rgb(0, 150, 136);
+            }
+
+            .layui-nav .layui-nav-item a .iconfont {
+                color: #ffffff;
+            }
+    </style>
+</head>
+<body>
+    <!-- 顶部开始 -->
+    <div class="container">
+        <div class="logo">
+            <a href="./index.html">管理系统</a>
+        </div>
+        <div class="left_open">
+            <a><i title="展开左侧栏" class="iconfont">&#xe869;</i></a>
+        </div>
+
+        <ul class="layui-nav right" lay-filter="">
+            <li class="layui-nav-item">
+                <a href="javascript:;">@Session["LoginIn"]</a>
+                <dl class="layui-nav-child">
+                    <!-- 二级菜单 -->
+
+                    <dd>
+                        <a href="/home/login">切换帐号</a>
+                    </dd>
+                    <dd>
+                        <a href="/home/login">退出</a>
+                    </dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item to-index">
+                <a href="/">前台首页</a>
+            </li>
+        </ul>
+    </div>
+    <!-- 顶部结束 -->
+    <!-- 中部开始 -->
+    <!-- 左侧菜单开始 -->
+    <div class="left-nav bg-f4">
+        <div id="side-nav" class="color-8c8c8c">
+            <ul id="nav">
+
+                <li class="sidebar-level-first">
+                    <a _href="/home/index" class="active" _id="welcome"><i class="layui-icon iconfont">&#xe68e;</i><cite>首页</cite></a>
+                </li>
+
+                <li>
+                    <a href="javascript:;"><i class="layui-icon iconfont">&#xe613;</i>  <cite>管理</cite><i class="iconfont icon-xialajiantou float-r pr-0"></i></a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a _href="/user/List2" _id="user_list2"><cite>管理员用户列表</cite></a>
+                        </li>
+
+                        <li>
+                            <a _href="/T_Base_Book/List" _id="T_Base_Book_List"><cite>书籍管理</cite></a>
+                        </li>
+                        <li>
+                            <a _href="/t_base_provider/list" _id="t_base_provider_list"><cite>供应商管理</cite></a>
+                        </li>
+                        <li>
+                            <a _href="/T_Base_Client/List" _id="T_Base_Client_List"><cite>客户管理</cite></a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;"><i class="layui-icon iconfont">&#xe613;</i>  <cite>业务管理</cite><i class="iconfont icon-xialajiantou float-r pr-0"></i></a>
+                    <ul class="sub-menu">
+
+                        <li>
+                            <a _href="/T_Stock_Inhead/List" _id="t_stock_inhead_list"><cite>入库管理</cite></a>
+                        </li>
+                        <li>
+                            <a _href="/T_Stock_Outhead/List" _id="t_stock_outhead_list"><cite>出库管理</cite></a>
+                        </li>
+                        <li>
+                            <a _href="/T_Stock_Report/List" _id="t_stock_report_list"><cite>库存查看</cite></a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+    <!-- <div class="x-slide_left"></div> -->
+    <!-- 左侧菜单结束 -->
+    <!-- 右侧主体开始 -->
+    <div class="page-content">
+        <div class="layui-tab tab" lay-filter="xbs_tab" lay-allowclose="true">
+            <ul class="layui-tab-title" id="xbs_tab">
+                @*<li>我的桌面</li>*@
+                <li lay-id="welcome" class="layui-this" lay-allowclose="false">首页</li>
+            </ul>
+            <div class="layui-tab-content">
+                @*<div class="layui-tab-item layui-show">
+                        @RenderBody()
+                    </div>*@
+                <div class="layui-tab-item layui-show">
+                    <iframe tab-id="welcome" frameborder="0" src="/Home/Index" id="frame_welcome" name="welcome" scrolling="yes" class="x-iframe"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-content-bg"></div>
+    <!-- 右侧主体结束 -->
+    <!-- 中部结束 -->
+    <!-- 底部开始 -->
+    <div class="footer">
+        <div class="copyright">Copyright ©2018</div>
+    </div>
+    <!-- 底部结束 -->
+    <!--右键菜单-->
+    <div id="titleClickMenu" class="layui-layer layui-layer-page layui-layer-dir layer-anim" style="color: rgb(0, 150, 136); z-index: 19891015; top: 82px; left: 319px; display: none;" tab_id="103">
+        <div id="" class="layui-layer-content">
+            <ul class="layui-layer-wrap" style="display: block;">
+                <li data-type="refresh"><a href="#"><i class="fa fa-refresh"></i><cite>刷新</cite></a></li>
+                <li data-type="closeThis"><a href="#"><i class="fa fa-times-circle"></i><cite>关闭当前</cite></a></li>
+                <li data-type="closeOther"><a href="#"><i class="fa fa-times-circle"></i><cite>关闭其他</cite></a></li>
+                <li data-type="closeAll"><a href="#"><i class="fa fa-times-circle-o"></i><cite>关闭全部</cite></a></li>
+            </ul>
+        </div>
+    </div>
+    <!--右键菜单-->
+
+    <script type="text/javascript" src="~/Content/layui/js/jquery-3.2.1.min.js"></script>
+
+    <script src="~/Content/layui/layui.js" charset="utf-8"></script>
+    <script src="~/Content/layui/layui.all.js"></script>
+    <script type="text/javascript" src="~/Content/layui/xadmin.js"></script>
+    <script type="text/javascript" src="~/Asset/X-admin/js/xadmin.js"></script>
+    <script>
+        layui.use(['form', 'element'],
+            function () {
+                layer = layui.layer;
+                element = layui.element;
+            });
+
+        $("#nav li a").click(function () {//所有的点击切换
+            $("#nav li a").removeClass("active");
+            $(this).addClass("active");
+            $("#nav li a").removeClass("bg-main-color");
+            $("#nav li a").children().removeClass("bg-main-color");
+
+            $(this).parents("li").siblings().find(".icon-xialajiantou").removeClass("rotate");
+            $(this).find(".icon-xialajiantou").toggleClass("rotate");
+
+            //如果有多个
+            if ($(this).siblings(".sub-menu").length > 0) {
+                $(this).children().addClass("bg-main-color")
+                $(this).addClass("bg-main-color")
+            }
+        })
+    </script>
+</body>
+</html>

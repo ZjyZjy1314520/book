@@ -1,0 +1,28 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add</title>
+</head>
+<body>
+    <div> 
+        <form action="/user/addsave" method="post">
+            登录名<input type="text" id="LoginName" name="LoginName" /><br/>
+            密码<input type="password" id="PWD" name="PWD" /><br />
+            昵称<input type="text" id="NickName" name="NickName" /><br />
+            角色<select id="Role" name="Role">
+                <option value="1"> 管理员</option>
+                <option value="2"> 店员</option>
+            </select> <br />
+
+            <input type="submit" value="提交" />
+        </form>
+    </div>
+</body>
+</html>

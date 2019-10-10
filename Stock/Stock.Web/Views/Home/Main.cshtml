@@ -1,4 +1,5 @@
-﻿@{
+﻿@*@model LX.Model.T_Admin_User*@
+@{
     Layout = null;
 }
 
@@ -50,78 +51,50 @@
         }
 
         .container {
-            border: 0px solid #f4f4f4;
+            border: 0px solid #60de3c;
         }
 
             .container .logo a {
-                color: #ffffff;
+                color: #545454;
                 padding-left: 20px;
             }
-            .container .left_open {
-                height: 45px;
-                float: left;
-                margin-left: 10px;
-            }
 
-                .container .left_open i {
-                    display: block;
-                    background: rgba(255,255,255,0.1);
-                    width: 32px;
-                    height: 32px;
-                    line-height: 32px;
-                    border-radius: 3px;
-                    text-align: center;
-                    margin-top: 7px;
-                    cursor: pointer;
-                }
-
-                    .container .left_open i:hover {
-                        background: rgba(255,255,255,0.3);
-                    }
-            .container .iconfont {
-                font-size: 14px;
-            }
         .layui-nav .layui-nav-item a {
-            color: #ff0000;
+            color: #f34f25;
         }
 
             .layui-nav .layui-nav-item a:hover {
-                color: rgb(0, 150, 136);
+                color: #f34f25;
             }
 
             .layui-nav .layui-nav-item a .iconfont {
-                color: #ffffff;
+                color: #f34f25;
             }
     </style>
 </head>
 <body>
     <!-- 顶部开始 -->
-    <div class="container">
-        <div class="logo">
-            <a href="./index.html">管理系统</a>
-        </div>
+    <div class="container " style="background-color:#f4f4f4">
+        <div class="logo"><a href="#" _href="/home/index" _title="首页" _id="welcome">后台管理系统</a></div>
         <div class="left_open">
-            <a><i title="展开左侧栏" class="iconfont">&#xe869;</i></a>
+
+            <i class="iconfont icon-list-ul"></i>
         </div>
 
         <ul class="layui-nav right" lay-filter="">
             <li class="layui-nav-item">
-                <a href="javascript:;">@Session["LoginIn"]</a>
+
+                <a href="javascript:;"><i class="layui-icon iconfont">&#xe612;</i>@Session["LoginIn"]</a>
                 <dl class="layui-nav-child">
                     <!-- 二级菜单 -->
-
-                    <dd>
-                        <a href="/home/login">切换帐号</a>
-                    </dd>
-                    <dd>
-                        <a href="/home/login">退出</a>
-                    </dd>
+                    
+                    <dd><a href="/Home/Login">切换帐号</a></dd>
+                    <dd><a href="/Login/LoginOut">退出</a></dd>
                 </dl>
             </li>
-            <li class="layui-nav-item to-index">
-                <a href="/">前台首页</a>
-            </li>
+           
         </ul>
+
     </div>
     <!-- 顶部结束 -->
     <!-- 中部开始 -->
@@ -216,7 +189,6 @@
     <script src="~/Content/layui/layui.js" charset="utf-8"></script>
     <script src="~/Content/layui/layui.all.js"></script>
     <script type="text/javascript" src="~/Content/layui/xadmin.js"></script>
-    <script type="text/javascript" src="~/Asset/X-admin/js/xadmin.js"></script>
     <script>
         layui.use(['form', 'element'],
             function () {

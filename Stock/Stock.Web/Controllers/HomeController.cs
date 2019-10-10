@@ -48,10 +48,12 @@ namespace Stock.Web.Controllers
             cm.CommandText = "select PWD from t_base_user where LoginName = '" + username + "'";
             cm.Connection = co;
             string pwd = "";
+            
             SqlDataReader dr = cm.ExecuteReader();
             while (dr.Read())
             {
                 pwd = Convert.ToString(dr["PWD"]);
+                
             }
             dr.Close();
             co.Close();

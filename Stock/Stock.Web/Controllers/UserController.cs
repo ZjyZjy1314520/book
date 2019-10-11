@@ -20,5 +20,12 @@ namespace Stock.Web.Controllers
             ViewBag.result = result;
             return View(); 
         }
+        public ActionResult List()
+        {
+            BLL.User userlist = new BLL.User();
+            List<Model.User> lst = userlist.GetAllList();
+            ViewBag.lst = lst;
+            return View();
+        }
     }
 }

@@ -1,0 +1,36 @@
+﻿
+@{
+    List<Stock.Model.User> lst = ViewBag.lst;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <!-- 引入bootstrap样式 -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入bootstrap-table样式 -->
+    <link href="https://cdn.bootcss.com/bootstrap-table/1.11.1/bootstrap-table.min.css" rel="stylesheet">
+    <!-- jquery -->
+    <script src="https://cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <!-- bootstrap-table.min.js -->
+    <script src="https://cdn.bootcss.com/bootstrap-table/1.11.1/bootstrap-table.min.js"></script>
+    <!-- 引入中文语言包 -->
+    <script src="https://cdn.bootcss.com/bootstrap-table/1.11.1/locale/bootstrap-table-zh-CN.min.js"></script>
+</head>
+<body>
+    <div class="table-responsive">
+        <table class="table">
+
+            <tr><td>登录名</td><td>密码</td><td>昵称</td><td>角色</td></tr>
+            @foreach (var user in lst)
+            {
+                <tr><td>@user.LoginName</td><td>@user.PWD</td><td>@user.NickName</td><td>@user.Role</td></tr>
+            }
+        </table>
+    </div>
+</body>
+</html>

@@ -10,10 +10,14 @@ namespace Stock.BLL
     {
         public int Add(Model.User model)
         {
-           
+
             DAL.User userDal = new DAL.User();
             return userDal.Add(model);
             //记录日志
         }
+        public List<Model.User> GetAllList(){
+            DAL.User userDal = new DAL.User();
+                return userDal.GetAllList();
+            }
     }
 }

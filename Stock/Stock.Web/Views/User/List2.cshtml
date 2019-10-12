@@ -1,0 +1,321 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <!-- 引入bootstrap样式 -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入bootstrap-table样式 -->
+    <link href="https://cdn.bootcss.com/bootstrap-table/1.11.1/bootstrap-table.min.css" rel="stylesheet">
+
+    <!-- jquery -->
+    <script src="https://cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <!-- bootstrap-table.min.js -->
+    <script src="https://cdn.bootcss.com/bootstrap-table/1.11.1/bootstrap-table.min.js"></script>
+    <!-- 引入中文语言包 -->
+    <script src="https://cdn.bootcss.com/bootstrap-table/1.11.1/locale/bootstrap-table-zh-CN.min.js"></script>
+
+
+    <script src="~/Asset/x-editable-develop/dist/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
+
+
+
+    <link href="~/Asset/x-editable-develop/dist/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet" />
+
+    <script src="~/Asset/bootstraptable/src/bootstrap-table-editable.js"></script>
+
+    <script src="~/Asset/tableExport.jquery.plugin-master/tableExport.min.js"></script>
+    <script src="~/Asset/export/bootstrap-table-export.js"></script>
+    <link rel="stylesheet" href="~/Asset/X-admin/css/font.css">
+    <link rel="stylesheet" href="~/Asset/X-admin/css/xadmin.css">
+    <script src="~/Asset/X-admin/lib/layui/layui.js"></script>
+    <script type="text/javascript" src="~/Asset/X-admin/js/xadmin.js"></script>
+
+</head>
+<body>
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">用户列表</h3>
+        </div>
+        <div class="panel-body">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="Id" placeholder="请输入编号">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="LoginName" placeholder="请输入账号">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="NickName" placeholder="请输入昵称">
+                        </div>
+                        <div class="form-group">
+
+                            <select name="role" id="Role" class="form-control">
+                                <option value="-1" selected="selected">All</option>
+                                <option value="1">管理员</option>
+                                <option value="0">店员</option>
+
+                            </select>
+                        </div>
+                        <button type="button" class="btn  btn-default" value="查询" id="btn_select">
+                        <i class="layui-icon">&#xe615;</i>
+                        </button>
+                    </form>
+                    
+           
+                </div>
+                
+
+            </div>
+            <div class="table-responsive">
+
+                <div id="toolbar" class="btn-group">
+                    <button id="btn_add" type="button" class="btn btn-default" onclick="xadmin.open('添加用户','/user/add',800,600)">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增用户
+                    </button>
+                    <button id="btn_del" type="button" class="btn btn-default">
+                        <span class="glyphicon glyphicon-delete" aria-hidden="true"></span>批量删除
+                    </button>
+                </div>
+                <table id="tbList" class="table"></table>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $("#btn_select").click(function () {
+            $("#tbList").bootstrapTable("refresh");
+        });
+        $('#tbList').bootstrapTable({
+
+            method: 'post',
+            contentType: "application/x-www-form-urlencoded",//必须要有！！！！Post请求的编码格式
+            url: "/user/getlistByPage",//要请求数据的文件路径
+
+            showRefresh: true,//刷新按钮
+            showColumns: true,
+            striped: true, //是否显示行间隔色
+
+            search: true,
+            strictSearch: true,
+
+
+            showExport: true,
+            exportTypes: ['excel', 'xlsx'],	   //导出类型
+            exportOptions: {
+                fileName: '用户导出',              //文件名称设置
+                worksheetName: 'Sheet1',          //表格工作区名称
+                tableName: '用户表',
+                excelstyles: ['background-color', 'color', 'font-size', 'font-weight'],
+            },
+            exportDataType: "basic",
+
+            toolbarAlign: 'left',//工具栏对齐方式
+            buttonsAlign: 'right',//按钮对齐方式
+            toolbar: '#toolbar',//指定工作栏
+
+            pageNumber: 1, //初始化加载第一页，默认第一页
+            pagination: true,//是否分页
+            sidePagination: 'server',//指定服务器端分页
+            pageSize: 3,//单页记录数
+            pageList: [2, 3, "all"],//分页步进值
+
+            sortName: "Id", //默认排序字段
+            sortOrder: "asc", //排序方式
+            queryParamsType: "",//limit方式,或默认方式
+                queryParams: function (params) {
+                    var tempPageSize;
+                    if (params.pageSize == undefined)
+                    {
+                        tempPageSize = this.totalRows;
+                    } else
+                    {
+                        tempPageSize = params.pageSize;
+                    }
+                    var tempPageNumber;
+                    if (params.pageNumber == undefined) {
+                        tempPageNumber = 1;
+                    } else {
+                        tempPageNumber = params.pageNumber;
+                    }
+                    return {
+
+
+                        pageSize: tempPageSize,//页大小
+                        pageNumber: tempPageNumber,//页码
+                        search: params.searchText,
+                        id: $("#Id").val(),
+                        nickName: $("#NickName").val(),
+                        loginName: $("#LoginName").val(),
+                        role: $("#Role").val(),
+                        sortName: params.sortName,
+                        sortOrder: params.sortOrder
+
+                    }
+                },
+
+
+
+            columns: [
+            {
+                title: '全选',
+                field: 'select',
+                //复选框
+                checkbox: true,
+                width: 25,
+                align: 'center',
+                valign: 'middle'
+            },
+            {
+                title: 'Id',
+                field: 'Id'
+
+
+            },
+            {
+                title: '登录名',
+                field: 'LoginName',
+                sortable: true,
+                
+
+            },
+
+            {
+                title: '密码',
+                field: 'PWD',
+                sortable: true,
+                visible:false
+
+            },
+            {
+                title: '昵称',
+                field: 'NickName',
+                sortable: true,
+            },
+            {
+                title: '角色',
+                field: 'Role',
+                formatter: function (value, row, index) {
+                    if (value == 1) {
+                        return "管理员"
+                    } else if (value == 0) {
+                        return "店员";
+                    }
+                   }
+            },
+            {
+                title: '操作',
+                formatter: function (value, row, index) {
+                    var delHtml = '<button class="layui-btn layui-btn layui-btn-xs" onclick="del(' + row.Id + ')">删除</button>';
+                
+                    var editHtml = '<button class="layui-btn layui-btn layui-btn-xs"  onclick="edit(' + row.Id + ')">编辑</button>';
+                    return delHtml+editHtml;
+                }
+
+            }
+            ],
+            
+
+
+        });
+
+        function del(id){
+            $.ajax({
+
+                type: "post",
+                url: "/User/Delete",
+                dataType: "json",
+                data: {id:id},
+                success: function (result) {
+                    //****
+                    if (result.code == 1) {
+                        //刷新
+
+                        $('#tbList').bootstrapTable('remove', {
+                            field: "Id",
+                            values: [parseInt(id)]
+                        });
+                       // location.reload();
+                    } else
+                        alert("删除失败");
+                },
+                error: function () {
+                    alert("通讯失败");
+                }
+
+
+            });
+        }
+
+
+        $("#btn_del").click(function () {
+
+            var ids = $.map(
+                     $('#tbList').bootstrapTable('getSelections'),
+
+                     function (row) { return row.Id}
+                     );
+            if (ids.length == 0)
+            {
+                alert("未选中");
+                return;
+            }
+            var oldids = ids;
+            ids = ids.join(",");
+            $.ajax({
+
+                type: "post",
+                url: "/User/Deletes",
+                dataType: "json",
+                data: { ids: ids },
+                success: function (result) {
+                    //****
+                    if (result.code == 1) {
+                        //刷新
+
+                        for (i = 0; i < oldids.length;i++)
+                        {
+                            $('#tbList').bootstrapTable('remove', {
+                                field: "Id",
+                                values: [parseInt(oldids[i])]
+                            });
+                        }
+
+
+                       // $("#tbList").bootstrapTable('refresh', { url: '/user/list2' });
+
+                         //location.reload();
+                    } else
+                        alert("删除失败");
+                },
+                error: function () {
+                    alert("通讯失败");
+                }
+
+
+            });
+        });
+
+        function edit(id) {
+            self.parent.x_tab_add("用户编辑", "/user/edit?id=" + id,"useredit");
+        }
+        //function add() {
+        //    self.parent.x_tab_add("用户新增", "/user/add", "useradd");
+        //}
+    </script>
+</body>
+</html>

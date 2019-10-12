@@ -22,10 +22,23 @@ namespace Stock.Web.Controllers
         }
         public ActionResult List()
         {
-            BLL.User userlist = new BLL.User();
-            List<Model.User> lst = userlist.GetAllList();
-            ViewBag.lst = lst;
-            return View();
+            return View("List2");
+        }
+        public JsonResult GetList()
+        {
+            BLL.User bllUser = new BLL.User();
+            List<Model.User> lst = bllUser.GetAllList();
+            return Json(lst);
+
+        }
+        public JsonResult getlistByPage(int pageSize, int pageNumber, int role, string sortName, string sortOrder, int Id = -1, string search = "", string loginName = "", string nickName = "")
+        {
+            BLL.User bllUser = new BLL.User();
+            List<Model.User> lst = bllUser.GetlistByPage(Id, pageSize, pageNumber, role, search, sortName, sortOrder, loginName, nickName);
+            int totalcount = bllUser.GetCount();
+            var result = new { rows = lst, total = totalcount };
+            return Json(result);
+
         }
     }
 }

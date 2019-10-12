@@ -56,5 +56,73 @@ namespace Stock.DAL
             co.Close();
             return lst;
         }
+        public int GetCount()
+        {
+            SqlConnection co = new SqlConnection();
+            co.ConnectionString = ConfigurationManager.ConnectionStrings["sqlconnection"].ToString();
+            co.Open();
+            SqlCommand cm = new SqlCommand();
+            cm.CommandText = "select count(*) from t_base_user";
+            cm.Connection = co;
+
+            Object count = cm.ExecuteScalar();
+            co.Close();
+            return (Int32)count;
+
+        }
+        public List<Model.User> GetlistByPage(int Id, int pageSize, int pageNumber, int role, string search, string sortName, string sortOrder, string loginName, string nickName)
+        {
+            SqlConnection co = new SqlConnection();
+            co.ConnectionString = ConfigurationManager.ConnectionStrings["sqlconnection"].ToString();
+            co.Open();
+            SqlCommand cm = new SqlCommand();
+            cm.Connection = co;
+            int skipcount = (pageNumber - 1) * pageSize;
+            string order = " order by " + sortName + " " + sortOrder + " ";
+
+            string whereId = "";
+            string whereRole = "";
+            if (Id != -1)
+            {
+                whereId = " and cast(Id as char) like '%" + Id + "%'";
+            }
+            if (role != -1)
+            {
+                whereRole = " and role=" + role;
+
+            }
+            string where = "  (LoginName like '%" + loginName + "%' and  NickName like '%" + nickName + "%'" + whereId + whereRole + " ) ";
+            if (search == "")
+            {
+                string subtable = "(select top " + skipcount + " Id from t_base_user where " + where + " " + order + "  )";
+                cm.CommandText = "select top " + pageSize + " * from t_base_user where  " + where + " and id not in " + subtable + " " + order;
+            }
+            else
+            {
+
+                string temp_table = "(select * from t_base_user where" + " LoginName like '%" + search + "%' or  NickName like '%" + search + "%') as temp_table";
+                string subtable = "(select top " + skipcount + " Id from " + temp_table + " where " + where + " " + order + "  )";
+                cm.CommandText = "select top " + pageSize + " * from" + temp_table + " where " + where + " and id not in " + subtable + " " + order;
+            }
+
+
+            SqlDataReader dr = cm.ExecuteReader();
+            List<Model.User> lst = new List<Model.User>();
+            while (dr.Read())
+            {
+                Model.User user = new Model.User();
+                user.LoginName = Convert.ToString(dr["LoginName"]);
+                user.NickName = Convert.ToString(dr["NickName"]);
+                user.PWD = Convert.ToString(dr["PWD"]);
+                user.Role = Convert.ToInt16(dr["Role"]);
+                user.Id = Convert.ToInt16(dr["Id"]);
+
+                lst.Add(user);
+            }
+            dr.Close();
+            co.Close();
+            return lst;
+
+        }
     }
 }

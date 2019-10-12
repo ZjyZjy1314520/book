@@ -1,6 +1,6 @@
 ﻿
 @{
-    List<Stock.Model.User> lst = ViewBag.lst;
+    Layout = null;
 }
 
 <!DOCTYPE html>
@@ -20,17 +20,197 @@
     <script src="https://cdn.bootcss.com/bootstrap-table/1.11.1/bootstrap-table.min.js"></script>
     <!-- 引入中文语言包 -->
     <script src="https://cdn.bootcss.com/bootstrap-table/1.11.1/locale/bootstrap-table-zh-CN.min.js"></script>
+
+    <script src="~/Asset/x-editable-develop/dist/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
+
+
+    <link href="~/Asset/x-editable-develop/dist/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet" />
+    <script src="~/Asset/bootstraptable/src/bootstrap-table-editable.js"></script>
 </head>
 <body>
-    <div class="table-responsive">
-        <table class="table">
 
-            <tr><td>登录名</td><td>密码</td><td>昵称</td><td>角色</td></tr>
-            @foreach (var user in lst)
-            {
-                <tr><td>@user.LoginName</td><td>@user.PWD</td><td>@user.NickName</td><td>@user.Role</td></tr>
-            }
-        </table>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">用户列表</h3>
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <div id="toolbar" class="btn-group">
+                    <button id="btn_add" type="button" class="btn btn-default">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增广告
+                    </button>
+                    <button id="btn_del" type="button" class="btn btn-default">
+                        <span class="glyphicon glyphicon-delete" aria-hidden="true"></span>删除
+                    </button>
+                </div>
+                <table id="tbList" class="table"></table>
+            </div>
+        </div>
     </div>
+
+    <script type="text/javascript">
+
+        $('#tbList').bootstrapTable({
+
+            method: 'post',
+            contentType: "application/x-www-form-urlencoded",//必须要有！！！！
+            url: "/user/getlist",//要请求数据的文件路径
+
+            showRefresh: true,//刷新按钮
+            showColumns: true,
+            striped: true, //是否显示行间隔色
+
+
+            toolbarAlign: 'left',//工具栏对齐方式
+            buttonsAlign: 'right',//按钮对齐方式
+            toolbar: '#toolbar',//指定工作栏
+
+            pageNumber: 1, //初始化加载第一页，默认第一页
+            pagination: true,//是否分页
+            sidePagination: 'client',//指定服务器端分页
+            pageSize: 5,//单页记录数
+            pageList: [5, 10, 20, 30],//分页步进值
+
+            columns: [
+                {
+                    title: '全选',
+                    field: 'select',
+                    //复选框
+                    checkbox: true,
+                    width: 25,
+                    align: 'center',
+                    valign: 'middle'
+                },
+                {
+                    title: 'Id',
+                    field: 'Id'
+
+
+                },
+                {
+                    title: '登录名',
+                    field: 'LoginName',
+                    sortable: true,
+                    editable: true
+
+                },
+
+                {
+                    title: '密码',
+                    field: 'PWD',
+                    sortable: true,
+                    visible: false
+
+                },
+                {
+                    title: '昵称',
+                    field: 'NickName',
+                },
+                {
+                    title: '角色',
+                    field: 'Role',
+                    formatter: function (value, row, index) {
+                        if (value == 1) {
+                            return "管理员"
+                        } else if (value == 0) {
+                            return "店员";
+                        }
+                    }
+                },
+                {
+                    title: '操作',
+                    formatter: function (value, row, index) {
+                        var delHtml = '<a onclick="del(' + row.Id + ')">删除</a>';
+                        var editHtml = '<a onclick="edit(' + row.Id + ')">编辑</a>';
+                        return delHtml + " | " + editHtml;
+                    }
+
+                }
+            ],
+            onEditableSave: function (field, row, oldValue, $el) {
+                alert("111")
+            },
+
+        });
+
+        function del(id) {
+            $.ajax({
+
+                type: "post",
+                url: "/User/Delete",
+                dataType: "json",
+                data: { id: id },
+                success: function (result) {
+                    //****
+                    if (result.code == 1) {
+                        //刷新
+
+                        $('#tbList').bootstrapTable('remove', {
+                            field: "Id",
+                            values: [parseInt(id)]
+                        });
+                        // location.reload();
+                    } else
+                        alert("删除失败");
+                },
+                error: function () {
+                    alert("通讯失败");
+                }
+
+
+            });
+        }
+
+
+        $("#btn_del").click(function () {
+
+            var ids = $.map(
+                $('#tbList').bootstrapTable('getSelections'),
+
+                function (row) { return row.Id }
+            );
+            if (ids.length == 0) {
+                alert("未选中");
+                return;
+            }
+            var oldids = ids;
+            ids = ids.join(",");
+            $.ajax({
+
+                type: "post",
+                url: "/User/Deletes",
+                dataType: "json",
+                data: { ids: ids },
+                success: function (result) {
+                    //****
+                    if (result.code == 1) {
+                        //刷新
+
+                        for (i = 0; i < oldids.length; i++) {
+                            $('#tbList').bootstrapTable('remove', {
+                                field: "Id",
+                                values: [parseInt(oldids[i])]
+                            });
+                        }
+
+
+                        // $("#tbList").bootstrapTable('refresh', { url: '/user/list2' });
+
+                        //location.reload();
+                    } else
+                        alert("删除失败");
+                },
+                error: function () {
+                    alert("通讯失败");
+                }
+
+
+            });
+        });
+
+        function edit(id) {
+            self.parent.x_tab_add("用户编辑", "/user/edit?id=" + id, "useredit");
+        }
+    </script>
 </body>
 </html>
